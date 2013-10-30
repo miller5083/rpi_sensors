@@ -6,7 +6,7 @@
 # rpi_sensors.py - Version 0.1
 ################################################
 # This script tries to combine all the known methods to read sensors on the RPI
-# Currently supported Sensors: DHT11, DHT22, AM2302, DS18B20 (1-wire), Ultrasonic Sensor(HC-SR04)
+# Currently supported Sensors: DHT11, DHT22, AM2302, DS18B20 (1-wire), Ultrasonic Sensor (HC-SR04)
 # 
 # Make sure to give the user (pi, nagios, ...) sudo-rights
 # example:
@@ -93,7 +93,7 @@ class OneWire(Sensor):
         #DS18B20 sometimes give a wrong temperature of 85 deg Celsius
         while lines[0].strip()[-3:] != 'YES' or (lines[1].find('t=85')!=-1):
             time.sleep(0.2)
-            lines = self.read_temp_raw(self.device_file)
+            lines = self.read_temp_raw()
         equals_pos = lines[1].find('t=')
         if equals_pos != -1:
             temp_string = lines[1][equals_pos+2:]
