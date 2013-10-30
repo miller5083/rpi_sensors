@@ -6,7 +6,7 @@
 # rpi_sensors.py - Version 0.1
 ################################################
 # This script tries to combine all the known methods to read sensors on the RPI
-# Currently supported Sensors: DHT11, DHT22, AM2302, DS18B20 (1-wire), Ultrasonic Sensor(HR-04?)
+# Currently supported Sensors: DHT11, DHT22, AM2302, DS18B20 (1-wire), Ultrasonic Sensor(HC-SR04)
 # 
 # Make sure to give the user (pi, nagios, ...) sudo-rights
 # example:
