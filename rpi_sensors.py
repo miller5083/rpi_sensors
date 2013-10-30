@@ -160,7 +160,7 @@ class UltraSonic(Sensor):
         #return average of collected data where low and high data was cut
         return all/(accuracy-2*int(accuracy/3))
 
-def init_onewire_devies():
+def init_onewire_devices():
     onewire_devices=[]
     for device in get_onewire_devices():
         onewire_devices.append=OneWire("DS18B20","Temperature",device)
@@ -188,6 +188,18 @@ def getLsMod(with_header=0):
     else:
         return lsmod
 
+def isModLoaded(modname):
+    for module in getLsMod():
+        if modname == module.name:
+            return True
+    return False
+
+def loadModule(modname,unload=""):
+    args=("sudo","modprobe",modname,unload)
+    popen=subprocess.Popen(args,stdout=subprocess.PIPE)
+    popen.wait()
+    return popen.poll()
+            
 def convert_to_fahrenheit(celsius):
     return 9.0/5.0 * celsius + 32
 def convert_to_celsius(fahrenheit):
