@@ -130,35 +130,35 @@ class UltraSonic(Sensor):
 
         return distance
         
-        def measure_average_distance(self,accuracy):
-            all=0     #all together
-            distance_now=0
+    def measure_average_distance(self,accuracy):
+        all=0     #all together
+        distance_now=0
 
-            distance=[]
-            #collect all measurements
-            for round in range(0,accuracy):
-                #measure
-                distance_now=self.ultrasonic_measure()
-                #add to list
-                distance.append(distance_now)
-                #add to total distance
-                all+=distance_now
-            #when all data collected sort the list
-            distance.sort()
-            #accuracy method only makes sense from 4 measurements
-            if accuracy > 3:
-                #cut the collected data in 3 parts: low-mid-high (the count of mid data is always >= low or high)
-                for round in range(0,int(accuracy/3)):
-                    #remove last item
-                    pop=distance.pop()
-                    #remove high data from collected data
-                    all-=pop
-                    #remove first item
-                    pop=distance.pop(0)
-                    #remove low data from collected data
-                    all-=pop
-            #return average of collected data where low and high data was cut
-            return all/(accuracy-2*int(accuracy/3))
+        distance=[]
+        #collect all measurements
+        for round in range(0,accuracy):
+            #measure
+            distance_now=self.ultrasonic_measure()
+            #add to list
+            distance.append(distance_now)
+            #add to total distance
+            all+=distance_now
+        #when all data collected sort the list
+        distance.sort()
+        #accuracy method only makes sense from 4 measurements
+        if accuracy > 3:
+            #cut the collected data in 3 parts: low-mid-high (the count of mid data is always >= low or high)
+            for round in range(0,int(accuracy/3)):
+                #remove last item
+                pop=distance.pop()
+                #remove high data from collected data
+                all-=pop
+                #remove first item
+                pop=distance.pop(0)
+                #remove low data from collected data
+                all-=pop
+        #return average of collected data where low and high data was cut
+        return all/(accuracy-2*int(accuracy/3))
 
 def init_onewire_devies():
     onewire_devices=[]
