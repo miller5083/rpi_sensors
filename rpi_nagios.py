@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*- 
 ###############################################################################
-# Stefan SüAss www.sysstem.at
+# Stefan Süss - www.sysstem.at
 ###############################################################################
 
 import rpi_version, rpi_sensors
