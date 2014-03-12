@@ -1,8 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*- 
 ###############################################################################
-# Stefan Süwww.sysstem.at
-# rpi_sensors.py - Version 0.1
+# Stefan Süss - www.sysstem.at
 ###############################################################################
 # This script tries to combine all the known methods to read sensors on the RPI
 # Currently supported Sensors: DHT11, DHT22, AM2302
